@@ -30,3 +30,5 @@ use Illuminate\Support\Facades\Route;
 // Route::delete('/doctors/{user}', [DoctorController::class, 'destroy'])->name('admin.doctors.destroy');
 
 Route::resource('/doctors', DoctorController::class)->names('admin.doctors')->only(['index', 'show', 'store', 'update', 'destroy']);
+
+URL::forceScheme('https');
