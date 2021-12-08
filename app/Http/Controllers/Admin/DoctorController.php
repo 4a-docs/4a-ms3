@@ -50,8 +50,8 @@ class DoctorController extends Controller
             'password' => Hash::make($request->get('password')),
         ])->assignRole('doctor');
 
-
-        $newUser = [
+        return response()->json([
+            'id' => $user->id,
             'name' => $user->name,
             'last_name' => $user->last_name,
             'email' => $user->email,
@@ -60,26 +60,12 @@ class DoctorController extends Controller
             'birthdate' => $user->birthdate,
             'phone' => $user->phone,
             'role' => $user->roles[0]['name']
-        ];
-
-        return response()->json(compact('newUser'), 201);
+        ], 201);
 
     }
 
     public function show(User $doctor)
     {
-        // $doctor = [
-        //     'id' => $doctor->id,
-        //     'name' => $doctor->name,
-        //     'last_name' => $doctor->last_name,
-        //     'email' => $doctor->email,
-        //     'eps' => $doctor->eps,
-        //     'identification' => $doctor->identification,
-        //     'birthdate' => $doctor->birthdate,
-        //     'phone' => $doctor->phone,
-        //     'role' => $doctor->roles[0]['name']
-        // ];
-
         return response()->json([
             'id' => $doctor->id,
             'name' => $doctor->name,
