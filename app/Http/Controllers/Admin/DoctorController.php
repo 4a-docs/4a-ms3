@@ -68,7 +68,19 @@ class DoctorController extends Controller
 
     public function show(User $doctor)
     {
-        $doctor = [
+        // $doctor = [
+        //     'id' => $doctor->id,
+        //     'name' => $doctor->name,
+        //     'last_name' => $doctor->last_name,
+        //     'email' => $doctor->email,
+        //     'eps' => $doctor->eps,
+        //     'identification' => $doctor->identification,
+        //     'birthdate' => $doctor->birthdate,
+        //     'phone' => $doctor->phone,
+        //     'role' => $doctor->roles[0]['name']
+        // ];
+
+        return response()->json([
             'id' => $doctor->id,
             'name' => $doctor->name,
             'last_name' => $doctor->last_name,
@@ -78,9 +90,7 @@ class DoctorController extends Controller
             'birthdate' => $doctor->birthdate,
             'phone' => $doctor->phone,
             'role' => $doctor->roles[0]['name']
-        ];
-
-        return response()->json(['user' => $doctor], 200);
+        ], 200);
     }
 
     public function update(Request $request, User $doctor)
